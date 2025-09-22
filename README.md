@@ -1,6 +1,6 @@
-# Tricium
+# Triticum
 Personal OCI images for self hosting
 
 Related:
-- <https://github.com/tulirockz/marmorata>
-- <https://github.com/tulirockz/taxifolia>
+- <https://github.com/tulilirockz/marmorata>
+- <https://github.com/tulilirockz/taxifolia>

@@ -1,0 +1,19 @@
+FROM alpine:latest AS builder
+
+RUN apk add go git
+
+RUN cd /tmp && \
+  git clone https://github.com/emersion/hydroxide.git && \
+  cd hydroxide && \
+  go build ./cmd/hydroxide
+
+FROM alpine:latest AS runtime
+
+COPY --from=builder /tmp/hydroxide/hydroxide /usr/bin/hydroxide
+
+RUN adduser -D -u 1000 hydroxide
+
+USER hydroxide
+WORKDIR /home/hydroxide
+
+ENTRYPOINT [ "/usr/bin/hydroxide" ]

@@ -1,0 +1,23 @@
+name: Build Unbound image
+
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "50 5 * * 0" # 5:50 UTC Weekly on Sundays
+  merge_group:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: ./.github/workflows/reusable-build-image.yml
+    secrets: inherit
+    with:
+      image-name: unbound
+      image-desc: Minimal alpine-based Unbound DNS image
+      publish: ${{ github.event_name != 'pull_request' }}

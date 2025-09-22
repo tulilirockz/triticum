@@ -1,6 +1,7 @@
 name: Build Hydroxide image
 
 on:
+  push:
   pull_request:
     branches:
       - main
@@ -15,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    uses: ./.github/workflows/reusable-build-image.yml
+    uses: ./.github/workflows/reusable-build.yaml
     secrets: inherit
     with:
       image-name: hydroxide

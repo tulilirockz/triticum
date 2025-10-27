@@ -1,4 +1,4 @@
-name: Build Hydroxide image
+name: Build Radicale image
 
 on:
   push:
@@ -19,6 +19,6 @@ jobs:
     uses: ./.github/workflows/reusable-build.yaml
     secrets: inherit
     with:
-      image-name: hydroxide
-      image-desc: Minimal alpine-based hydroxide image
+      image-name: radicale
+      image-desc: Minimal alpine-based radicale image
       publish: ${{ github.event_name != 'pull_request' }}

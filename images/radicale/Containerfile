@@ -1,0 +1,3 @@
+FROM alpine:latest
+RUN apk add radicale apache2-utils
+ENTRYPOINT [ "radicale" ]

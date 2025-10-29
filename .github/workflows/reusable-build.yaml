@@ -30,7 +30,7 @@ on:
 env:
   IMAGE_NAME: ${{ inputs.image-name }}
   IMAGE_DESC: ${{ inputs.image-desc }}
-  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
+  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}"
   DEFAULT_TAG: "latest"
   PLATFORMS: ${{ inputs.platforms }}
 

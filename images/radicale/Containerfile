@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 
 RUN apk add -U --no-cache radicale apache2-utils && \
   echo "nonroot:x:65534:65534:nonroot:/home/nonroot:/usr/sbin/nologin" | tee -a /etc/passwd && \

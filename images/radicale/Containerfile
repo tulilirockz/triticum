@@ -1,3 +1,11 @@
 FROM alpine:latest
-RUN apk add radicale apache2-utils
+
+RUN apk add -U --no-cache radicale apache2-utils && \
+  echo "nonroot:x:65534:65534:nonroot:/home/nonroot:/usr/sbin/nologin" | tee -a /etc/passwd && \
+  echo "nonroot:x:65534:nonroot" | tee -a /etc/group
+
+RUN chown nonroot:nonroot /var/lib/radicale
+
+USER nonroot
+
 ENTRYPOINT [ "radicale" ]

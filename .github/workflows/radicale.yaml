@@ -2,6 +2,8 @@ name: Build Radicale image
 
 on:
   push:
+    paths:
+      - "images/radicale"
   pull_request:
     branches:
       - main

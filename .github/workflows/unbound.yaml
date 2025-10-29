@@ -2,6 +2,8 @@ name: Build Unbound image
 
 on:
   push:
+    paths:
+      - "images/unbound"
   pull_request:
     branches:
       - main

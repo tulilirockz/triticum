@@ -1,3 +1,9 @@
 FROM alpine:latest
-RUN apk add unbound
-ENTRYPOINT [ "unbound", "-v", "-d" ]
+
+RUN apk add -U --no-cache unbound && \
+  echo "unbound:x:65534:65534:unbound:/home/unbound:/usr/sbin/nologin" | tee -a /etc/passwd && \
+  echo "unbound:x:65534:unbound" | tee -a /etc/group
+
+USER unbound
+
+ENTRYPOINT [ "unbound", "-vvvv", "-d" ]

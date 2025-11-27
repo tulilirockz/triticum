@@ -1,0 +1,26 @@
+name: Build Miniflux image
+
+on:
+  push:
+    paths:
+      - "images/miniflux"
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "50 5 * * 0"
+  merge_group:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: ./.github/workflows/reusable-build.yaml
+    secrets: inherit
+    with:
+      image-name: miniflux
+      image-desc: Minimal alpine-based miniflux image
+      publish: ${{ github.event_name != 'pull_request' }}

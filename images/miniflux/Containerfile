@@ -1,0 +1,9 @@
+FROM alpine:edge
+
+RUN apk add -U --no-cache miniflux && \
+  echo "nonroot:x:65534:65534:nonroot:/home/nonroot:/usr/sbin/nologin" | tee -a /etc/passwd && \
+  echo "nonroot:x:65534:nonroot" | tee -a /etc/group
+
+USER nonroot
+
+ENTRYPOINT [ "miniflux" ]

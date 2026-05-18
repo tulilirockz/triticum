@@ -1,4 +1,4 @@
-# Triticum
+# Cerasus
 Personal OCI images for self hosting
 
 Related:

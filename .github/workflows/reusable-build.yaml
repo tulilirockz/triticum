@@ -214,7 +214,7 @@ jobs:
             org.opencontainers.image.vendor=${{ github.repository_owner }}
             org.opencontainers.image.version=${{ env.DEFAULT_TAG }}
             io.artifacthub.package.deprecated=false
-            io.artifacthub.package.keywords=minimal,triticum,alpine
+            io.artifacthub.package.keywords=minimal,cerasus,alpine
             io.artifacthub.package.license=BSD-3-Clause
             io.artifacthub.package.logo-url=https://avatars.githubusercontent.com/u/120808662?v=4
             io.artifacthub.package.maintainers=[{\"name\":\"tulilirockz\",\"email\":\"tulilirockz@proton.me\"}]
